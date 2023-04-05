@@ -1,0 +1,617 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RookAppleHealth
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import HealthKit
+@_exported import RookAppleHealth
+import Swift
+import WatchConnectivity
+import _Concurrency
+import _StringProcessing
+public enum NetworkResponse : Swift.String {
+  case succes
+  case authenticationError
+  case badRequest
+  case outdated
+  case failed
+  case noData
+  case unableToDecode
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum RookDataType : Swift.String {
+  case sleepSummary
+  case physicalSummary
+  case bodySummary
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public typealias NetworkRouterCompletion = (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: Swift.Error?) -> Swift.Void
+@_hasMissingDesignatedInitializers final public class RookAuthAppleHealth {
+  public static let shared: RookAppleHealth.RookAuthAppleHealth
+  final public func setClientUUID(with uuid: Swift.String)
+  final public func initRookAH()
+  final public func isAHAvailable() -> Swift.Bool
+  @objc deinit
+}
+public struct JSONParameterEncoder : RookAppleHealth.ParameterEncoder {
+  public static func encode(urlRequest: inout Foundation.URLRequest, with parameters: RookAppleHealth.Parameters) throws
+}
+public typealias HTTPHeaders = [Swift.String : Swift.String]
+public enum HTTPTask {
+  case request
+  case requestParameters(bodyParameters: RookAppleHealth.Parameters?, urlParameters: RookAppleHealth.Parameters?)
+  case requestParametersAndHeaders(bodyParameters: RookAppleHealth.Parameters?, urlParameters: RookAppleHealth.Parameters?, additionalHeaders: RookAppleHealth.HTTPHeaders?)
+}
+public struct URLParameterEncoder : RookAppleHealth.ParameterEncoder {
+  public static func encode(urlRequest: inout Foundation.URLRequest, with parameters: RookAppleHealth.Parameters) throws
+}
+public struct RookSleepData : Swift.Codable {
+  public let dataStructure: Swift.String
+  public let version: Swift.Int
+  public let summaries: RookAppleHealth.RookSleepSummaries
+  public func getDictionary() -> [Swift.String : Any]
+  public func getData() -> Foundation.Data?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct RookSleepSummaries : Swift.Codable {
+  public let sleepRelatedData: RookAppleHealth.SleepRelatedData
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SleepRelatedData : Swift.Codable {
+  public let metadata: RookAppleHealth.RookSleepMetadata
+  public let sleepDurationRelatedData: RookAppleHealth.SleepDurationRelatedData
+  public let sleepScores: RookAppleHealth.SleepScores
+  public let sleepHeartRateRelatedData: RookAppleHealth.SleepHeartRateRelatedData
+  public let temperatureRelatedData: RookAppleHealth.TemperatureRelatedData
+  public let breathingRelatedData: RookAppleHealth.BreathingRelatedData
+  public let nonStructuredData: [Swift.String]?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct BreathingRelatedData : Swift.Codable {
+  public let breathsMinimumPerMin: Swift.Int?
+  public let breathsAvgPerMin: Swift.Int?
+  public let breathsMaxPerMin: Swift.Int?
+  public let breathingGranularDataBreathsPerMin: [RookAppleHealth.BreathingGranularDataBreathsPerMin]?
+  public let snoringEventsCountNumber: Swift.Int?
+  public let snoringDurationTotalSeconds: Swift.Int?
+  public let snoringGranularDataSnores: [RookAppleHealth.SnoringGranularDataSnore]?
+  public let saturationAvgPercentage: Swift.Int?
+  public let saturationGranularDataPercentage: [RookAppleHealth.SaturationGranularDataPercentage]?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct BreathingGranularDataBreathsPerMin : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let breathsPerMin: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SaturationGranularDataPercentage : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let saturationPercentage: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SnoringGranularDataSnore : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let intervalDurationSeconds: Swift.Int, snoringEventsCountNumber: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct RookSleepMetadata : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let userID: Swift.String?
+  public let sourcesOfData: [Swift.String]
+  public let userDemographics: [RookAppleHealth.UserDemographic]
+  public let sleepHealthScore: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct UserDemographic : Swift.Codable {
+  public let sex: Swift.String?
+  public let gender: Swift.String?
+  public let dateOfBirth: Swift.String?
+  public let age: Swift.Int?
+  public let country: Swift.String?
+  public let state: Swift.String?
+  public let city: Swift.String?
+  public let ethnicity: Swift.String?
+  public let income: Swift.String?
+  public let maritalStatus: Swift.String?
+  public let education: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SleepDurationRelatedData : Swift.Codable {
+  public let sleepStartDatetime: Foundation.Date
+  public let sleepEndDatetime: Foundation.Date
+  public let sleepDate: Foundation.Date
+  public let sleepDurationSeconds: Swift.Int
+  public let timeInBedSeconds: Swift.Int
+  public let lightSleepDurationSeconds: Swift.Int
+  public let remSleepDurationSeconds: Swift.Int
+  public let deepSleepDurationSeconds: Swift.Int
+  public let timeToFallAsleepSeconds: Swift.Int
+  public let timeAwakeDuringSleepSeconds: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SleepHeartRateRelatedData : Swift.Codable {
+  public let hrMaxBPM: Swift.Int?, hrMinimumBPM: Swift.Int?, hrAvgBPM: Swift.Int?, hrRestingBPM: Swift.Int?
+  public let hrBasalBPM: Swift.Int?
+  public let hrGranularDataBPM: [RookAppleHealth.HrGranularDataBPM]?
+  public let hrvAvgRmssdNumber: Swift.Int?, hrvAvgSdnnNumber: Swift.Int?
+  public let hrvSdnnGranularData: [RookAppleHealth.HrvSdnnGranularDatum]?
+  public let hrvRmssdGranularData: [RookAppleHealth.HrvRmssdGranularDatum]?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct HrGranularDataBPM : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let bpm: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct HrvRmssdGranularDatum : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let hrvRmssd: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct HrvSdnnGranularDatum : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let hrvSdnn: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SleepScores : Swift.Codable {
+  public let sleepQualityRating1_5_Score: Swift.Int?, sleepEfficiency1_100_Score: Swift.Int?, sleepGoalSeconds: Swift.Int?, sleepContinuity1_5_Score: Swift.Int?
+  public let sleepContinuity1_5_Rating: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct TemperatureRelatedData : Swift.Codable {
+  public let temperatureMinimumCelsius: Swift.Int?, temperatureAvgCelsius: Swift.Int?, temperatureMaxCelsius: Swift.Int?
+  public let temperatureGranularDataCelsius: [RookAppleHealth.TemperatureGranularDataCelsius]?
+  public let temperatureDeltaCelsius: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct TemperatureGranularDataCelsius : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let temperatureCelsius: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public typealias Parameters = [Swift.String : Any]
+public protocol ParameterEncoder {
+  static func encode(urlRequest: inout Foundation.URLRequest, with parameters: RookAppleHealth.Parameters) throws
+}
+public enum NetworkError : Swift.String, Swift.Error {
+  case parametersNil
+  case encodingFailed
+  case missingUrl
+  case noData
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum RookError : Swift.String, Swift.Error {
+  case SDKUnavailable
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum HTTPMethod : Swift.String {
+  case get
+  case post
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+final public class RookExtractionManager {
+  public init()
+  final public func getSleepSummay(date: Foundation.Date, completion: @escaping (Swift.Result<RookAppleHealth.RookSleepData?, Swift.Error>) -> Swift.Void)
+  final public func getPhysicalSummary(date: Foundation.Date, completion: @escaping (Swift.Result<RookAppleHealth.RookPhysicalData, Swift.Error>) -> Swift.Void)
+  final public func getBodySummary(date: Foundation.Date, completion: @escaping (Swift.Result<RookAppleHealth.RookBodyData, Swift.Error>) -> Swift.Void)
+  final public func getLastExtractionDate(of summary: RookAppleHealth.RookDataType) -> Foundation.Date?
+  @objc deinit
+}
+public struct RookPhysicalData : Swift.Codable {
+  public let dataStructure: Swift.String
+  public let version: Swift.Int
+  public let summaries: RookAppleHealth.RookPhysicalSummaries
+  public func getDictionary() -> [Swift.String : Any]
+  public func getData() -> Foundation.Data?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct RookPhysicalSummaries : Swift.Codable {
+  public let dailyActivityRelatedData: RookAppleHealth.DailyActivityRelatedData
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct DailyActivityRelatedData : Swift.Codable {
+  public let metadata: RookAppleHealth.RookPhysicalMetadata
+  public let distanceData: RookAppleHealth.DistanceData
+  public let oxygenationData: RookAppleHealth.OxygenationData
+  public let activityData: RookAppleHealth.ActivityData
+  public let caloriesData: RookAppleHealth.CaloriesData
+  public let heartRateData: RookAppleHealth.HeartRateData
+  public let stressData: RookAppleHealth.StressData
+  public let nonStructuredData: RookAppleHealth.NonStructuredData?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct RookPhysicalMetadata : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let userID: Swift.String?
+  public let sourcesOfData: [Swift.String]
+  public let userDemographics: [RookAppleHealth.UserDemographic]
+  public let physicalHealthScore: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct ActivityData : Swift.Codable {
+  public let activeSeconds: Swift.Int?, restSeconds: Swift.Int?, lowIntensitySeconds: Swift.Int?, moderateIntensitySeconds: Swift.Int?
+  public let vigorousIntensitySeconds: Swift.Int?, inactivitySeconds: Swift.Int?
+  public let activityLevelGranularDataNumber: [RookAppleHealth.ActivityLevelGranularDataNumber]?
+  public let continuousInactivePeriodsNumber: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct ActivityLevelGranularDataNumber : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let activityLevel: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct CaloriesData : Swift.Codable {
+  public let caloriesNetIntakeKilocalories: Swift.Int?, caloriesExpenditureKilocalories: Swift.Int?, caloriesNetActiveKilocalories: Swift.Int?, caloriesBasalMetabolicRateKilocalories: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct DistanceData : Swift.Codable {
+  public let stepsPerDayNumber: Swift.Int?
+  public let stepsGranularDataStepsPerHr: [RookAppleHealth.StepsGranularDataStepsPerHr]?
+  public let activeStepsPerDayNumber: Swift.Int?
+  public let activeStepsGranularDataStepsPerHr: [RookAppleHealth.StepsGranularDataStepsPerHr]?
+  public let walkedDistanceMeters: Swift.Int?, traveledDistanceMeters: Swift.Int?
+  public let traveledDistanceGranularDataMeters: [RookAppleHealth.TraveledDistanceGranularDataMeter]?
+  public let floorsClimbedNumber: Swift.Int?
+  public let floorsClimbedGranularDataFloors: [RookAppleHealth.FloorsClimbedGranularDataFloor]?
+  public let elevationAvgAltitudeMeters: Swift.Int?, elevationMinimumAltitudeMeters: Swift.Int?, elevationMaxAltitudeMeters: Swift.Int?, elevationLossActualAltitudeMeters: Swift.Int?
+  public let elevationGainActualAltitudeMeters: Swift.Int?, elevationPlannedGainMeters: Swift.Int?
+  public let elevationGranularDataMeters: [RookAppleHealth.ElevationGranularDataMeter]?
+  public let swimmingStrokesNumber: Swift.Int?, swimmingNumLapsNumber: Swift.Int?, swimmingPoolLengthMeters: Swift.Int?, swimmingTotalDistanceMeters: Swift.Int?
+  public let swimmingDistanceGranularDataMeters: [RookAppleHealth.SwimmingDistanceGranularDataMeter]?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct StepsGranularDataStepsPerHr : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let intervalDurationSeconds: Swift.Int, steps: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct ElevationGranularDataMeter : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let intervalDurationSeconds: Swift.Int, elevationChange: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct FloorsClimbedGranularDataFloor : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let intervalDurationSeconds: Swift.Int, floorsClimbed: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct SwimmingDistanceGranularDataMeter : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let intervalDurationSeconds: Swift.Int, swimmingDistanceMeters: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct TraveledDistanceGranularDataMeter : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let intervalDurationSeconds: Swift.Int, traveledDistanceMeters: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct HeartRateData : Swift.Codable {
+  public let hrMaxBPM: Swift.Int?, hrMinimumBPM: Swift.Int?, hrAvgBPM: Swift.Int?, hrRestingBPM: Swift.Int?
+  public let hrGranularDataBPM: [RookAppleHealth.HrGranularDataBPM]?
+  public let hrvAvgRmssdNumber: Swift.Int?, hrvAvgSdnnNumber: Swift.Int?
+  public let hrvSdnnGranularDataNumber: [RookAppleHealth.HrvSdnnGranularDataNumber]?
+  public let hrvRmssdGranularDataNumber: [RookAppleHealth.HrvRmssdGranularDataNumber]?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct HrvRmssdGranularDataNumber : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let hrvRmssd: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct HrvSdnnGranularDataNumber : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let hrvSdnn: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct NonStructuredData : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct OxygenationData : Swift.Codable {
+  public let saturationAvgPercentage: Swift.Int?
+  public let saturationGranularDataPercentage: [RookAppleHealth.SaturationGranularDataPercentage]?
+  public let vo2MaxMlPerMinPerKg: Swift.Int?
+  public let vo2GranularDataLiterPerMin: [RookAppleHealth.Vo2GranularDataLiterPerMin]?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Vo2GranularDataLiterPerMin : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let vo2MlPerMinPerKg: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct StressData : Swift.Codable {
+  public let stressAtRESTDurationSeconds: Swift.Int?, stressDurationSeconds: Swift.Int?, lowStressDurationSeconds: Swift.Int?, mediumStressDurationSeconds: Swift.Int?
+  public let highStressDurationSeconds: Swift.Int?
+  public let stressGranularDataScoreNumber: [RookAppleHealth.StressGranularDataScoreNumber]?
+  public let stressAvgLevelNumber: Swift.Int?, stressMaxLevelNumber: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct StressGranularDataScoreNumber : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let stressScore: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum SleepEvent : Swift.String {
+  case aSleep
+  case inBed
+  case aWake
+  case asleepREM
+  case asleepCore
+  case asleepDeep
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct SleepDataDuration {
+  public let start: Foundation.Date
+  public let end: Foundation.Date
+  public let duration: Swift.Int
+  public let timeInBed: Swift.Int
+  public let sleepLightDuration: Swift.Int
+  public let sleepRemDuration: Swift.Int
+  public let sleepDeepDuration: Swift.Int
+  public let sleepFallDuration: Swift.Int
+  public let sleepAwakeDuration: Swift.Int
+}
+public enum HealthDataType : Swift.String, Swift.CaseIterable, Swift.Identifiable {
+  public var id: RookAppleHealth.HealthDataType {
+    get
+  }
+  case appleExerciseTime
+  case appleStandTime
+  case basalEnergyBurned
+  case activeEnergyBurned
+  case stepCount
+  case distanceCycling
+  case distanceWalkingRunning
+  case distanceSwimming
+  case swimmingStrokeCount
+  case flightsClimbed
+  case height
+  case bodyMass
+  case waistCircumference
+  case bodyFatPercentage
+  case bodyTemperature
+  case basalBodyTemperature
+  case heartRate
+  case restingHeartRate
+  case walkingHeartRateAverage
+  case heartRateVariabilitySDNN
+  case workout
+  case sleepAnalysis
+  case vo2Max
+  case oxygenSaturation
+  case biologicalSex
+  case dateOfBirth
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [RookAppleHealth.HealthDataType]
+  public typealias ID = RookAppleHealth.HealthDataType
+  public typealias RawValue = Swift.String
+  public static var allCases: [RookAppleHealth.HealthDataType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public class RookPermissionExtraction {
+  public init()
+  public func requestAllPermissions(completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
+  public func requestSleepPermissions(completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
+  public func requestPhysicalPermissions(completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
+  public func requesBodyPermissions(completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
+  @objc deinit
+}
+public struct RookCalories {
+  public let activeCalories: Swift.Int
+  public let basalCalories: Swift.Int
+  public let totalCalories: Swift.Int
+}
+public struct RookBodyData : Swift.Codable {
+  public let dataStructure: Swift.String
+  public let version: Swift.Int
+  public let summaries: RookAppleHealth.RookBodySummaries
+  public func getDictionary() -> [Swift.String : Any]
+  public func getData() -> Foundation.Data?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct RookBodySummaries : Swift.Codable {
+  public let bodyData: RookAppleHealth.BodyData
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct BodyData : Swift.Codable {
+  public let metadata: RookAppleHealth.RookBodyMetadata
+  public let body: RookAppleHealth.Body
+  public let bloodGlucose: RookAppleHealth.BloodGlucose
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct RookBodyMetadata : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let userID: Swift.String?
+  public let sourcesOfData: [Swift.String]
+  public let userDemographics: [RookAppleHealth.UserDemographic]
+  public let bodyHealthScore: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct BloodGlucose : Swift.Codable {
+  public let bloodGlucoseDayAvgMgPerDLNumber: Swift.Int?
+  public let bloodGlucoseGranularDataMgPerDL: [RookAppleHealth.BloodGlucoseGranularDataMgPerDL]?
+  public let bloodPressure: RookAppleHealth.BloodPressure
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct BloodGlucoseGranularDataMgPerDL : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let bloodGlucoseMgPerDL: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct BloodPressure : Swift.Codable {
+  public let bloodPressureDayAvgSystolicDiastolicBpNumber: [RookAppleHealth.BloodPressureSystolicDiastolicBpNumber]?
+  public let bloodPressureGranularDataSystolicDiastolicBpNumber: [RookAppleHealth.BloodPressureGranularDataSystolicDiastolicBpNumber]?
+  public let hydration: RookAppleHealth.Hydration
+  public let heartRateData: RookAppleHealth.HeartRateData
+  public let mood: RookAppleHealth.Mood
+  public let nutrition: RookAppleHealth.Nutrition
+  public let oxygenationData: RookAppleHealth.OxygenationData
+  public let temperatureRelatedData: RookAppleHealth.TemperatureRelatedData
+  public let nonStructuredData: RookAppleHealth.NonStructuredData?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct BloodPressureSystolicDiastolicBpNumber : Swift.Codable {
+  public let systolicBp: Swift.Int, diastolicBp: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct BloodPressureGranularDataSystolicDiastolicBpNumber : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let bloodPressureSystolicDiastolicBpNumber: [RookAppleHealth.BloodPressureSystolicDiastolicBpNumber]
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Hydration : Swift.Codable {
+  public let waterTotalConsumptionMlNumber: Swift.Int?
+  public let hydrationAmountGranularDataMlNumber: [RookAppleHealth.HydrationAmountGranularDataMlNumber]?
+  public let hydrationLevelGranularDataPercentageNumber: [RookAppleHealth.HydrationLevelGranularDataPercentageNumber]?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct HydrationAmountGranularDataMlNumber : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let intervalDurationSeconds: Swift.Int, hydrationAmountMl: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct HydrationLevelGranularDataPercentageNumber : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let intervalDurationSeconds: Swift.Int, hydrationLevelPercentage: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Mood : Swift.Codable {
+  public let moodMinimumScale: Swift.Int?, moodAvgScale: Swift.Int?, moodMaxScale: Swift.Int?
+  public let moodGranularDataScale: [RookAppleHealth.MoodGranularDataScale]?
+  public let moodDeltaScale: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct MoodGranularDataScale : Swift.Codable {
+  public let datetime: Foundation.Date
+  public let intervalDurationSeconds: Swift.Int, moodScale: Swift.Int
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Nutrition : Swift.Codable {
+  public let foodIntakeNumber: RookAppleHealth.FoodIntakeNumber?
+  public let caloriesIntakeNumber: Swift.Int?, proteinIntakeGNumber: Swift.Int?, sugarIntakeGNumber: Swift.Int?, fatIntakeGNumber: Swift.Int?
+  public let transFatIntakeGNumber: Swift.Int?, carbohydratesIntakeGNumber: Swift.Int?, fiberIntakeGNumber: Swift.Int?, alcoholIntakeGNumber: Swift.Int?
+  public let sodiumIntakeMgNumber: Swift.Int?, cholesterolIntakeMgNumber: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct FoodIntakeNumber : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Body : Swift.Codable {
+  public let waistCircumferenceCMNumber: Swift.Int?, hipCircumferenceCMNumber: Swift.Int?, chestCircumferenceCMNumber: Swift.Int?, boneCompositionPercentageNumber: Swift.Int?
+  public let muscleCompositionPercentageNumber: Swift.Int?, weightKgNumber: Swift.Int?, heightCMNumber: Swift.Int?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum ExtractionErrors : Swift.String, Swift.Error {
+  case sleepDataEmpty
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+extension RookAppleHealth.NetworkResponse : Swift.Equatable {}
+extension RookAppleHealth.NetworkResponse : Swift.Hashable {}
+extension RookAppleHealth.NetworkResponse : Swift.RawRepresentable {}
+extension RookAppleHealth.RookDataType : Swift.Equatable {}
+extension RookAppleHealth.RookDataType : Swift.Hashable {}
+extension RookAppleHealth.RookDataType : Swift.RawRepresentable {}
+extension RookAppleHealth.NetworkError : Swift.Equatable {}
+extension RookAppleHealth.NetworkError : Swift.Hashable {}
+extension RookAppleHealth.NetworkError : Swift.RawRepresentable {}
+extension RookAppleHealth.RookError : Swift.Equatable {}
+extension RookAppleHealth.RookError : Swift.Hashable {}
+extension RookAppleHealth.RookError : Swift.RawRepresentable {}
+extension RookAppleHealth.HTTPMethod : Swift.Equatable {}
+extension RookAppleHealth.HTTPMethod : Swift.Hashable {}
+extension RookAppleHealth.HTTPMethod : Swift.RawRepresentable {}
+extension RookAppleHealth.SleepEvent : Swift.Equatable {}
+extension RookAppleHealth.SleepEvent : Swift.Hashable {}
+extension RookAppleHealth.SleepEvent : Swift.RawRepresentable {}
+extension RookAppleHealth.HealthDataType : Swift.Equatable {}
+extension RookAppleHealth.HealthDataType : Swift.Hashable {}
+extension RookAppleHealth.HealthDataType : Swift.RawRepresentable {}
+extension RookAppleHealth.ExtractionErrors : Swift.Equatable {}
+extension RookAppleHealth.ExtractionErrors : Swift.Hashable {}
+extension RookAppleHealth.ExtractionErrors : Swift.RawRepresentable {}
