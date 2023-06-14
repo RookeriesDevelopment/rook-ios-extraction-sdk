@@ -230,6 +230,8 @@ using UInt = size_t;
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import Foundation;
+@import ObjectiveC;
 #endif
 
 #endif
@@ -251,6 +253,49 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 
+
+@class NSString;
+
+SWIFT_CLASS("_TtC15RookAppleHealth19RookAuthAppleHealth")
+@interface RookAuthAppleHealth : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RookAuthAppleHealth * _Nonnull shared;)
++ (RookAuthAppleHealth * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// Sets your client uuid to configure the sdk
+- (void)setClientUUIDWith:(NSString * _Nonnull)uuid;
+/// Initializes the rook apple health sdk
+/// first you have to set your client uuid
+- (void)initRookAH SWIFT_METHOD_FAMILY(none);
+- (BOOL)isAHAvailable SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth21RookExtractionManager")
+@interface RookExtractionManager : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSDate;
+
+@interface RookExtractionManager (SWIFT_EXTENSION(RookAppleHealth))
+- (void)getSleepSummayObjcWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
+- (void)getPhysicalSummaryObjcWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
+- (void)getBodySummaryObjcWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
+- (NSDate * _Nullable)getLastExtractionDateOfSleep SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getLastExtractionDateOfPhysical SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getLastExtractionDateOfBody SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth24RookPermissionExtraction")
+@interface RookPermissionExtraction : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)requestAllPermissionsObjcWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+- (void)requestSleepPermissionsObjcWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+- (void)requestPhysicalPermissionsObjcWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+- (void)requesBodyPermissionsObjcWithCompletion:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completion;
+@end
 
 #endif
 #if defined(__cplusplus)

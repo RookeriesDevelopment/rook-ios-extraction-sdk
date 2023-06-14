@@ -9,6 +9,14 @@ import Swift
 import WatchConnectivity
 import _Concurrency
 import _StringProcessing
+extension RookAppleHealth.RookExtractionManager {
+  @objc final public func getSleepSummayObjc(date: Foundation.Date, completion: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
+  @objc final public func getPhysicalSummaryObjc(date: Foundation.Date, completion: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
+  @objc final public func getBodySummaryObjc(date: Foundation.Date, completion: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
+  @objc final public func getLastExtractionDateOfSleep() -> Foundation.Date?
+  @objc final public func getLastExtractionDateOfPhysical() -> Foundation.Date?
+  @objc final public func getLastExtractionDateOfBody() -> Foundation.Date?
+}
 public enum NetworkResponse : Swift.String {
   case succes
   case authenticationError
@@ -34,11 +42,11 @@ public enum RookDataType : Swift.String {
   }
 }
 public typealias NetworkRouterCompletion = (_ data: Foundation.Data?, _ response: Foundation.URLResponse?, _ error: Swift.Error?) -> Swift.Void
-@_hasMissingDesignatedInitializers final public class RookAuthAppleHealth {
-  public static let shared: RookAppleHealth.RookAuthAppleHealth
-  final public func setClientUUID(with uuid: Swift.String)
-  final public func initRookAH()
-  final public func isAHAvailable() -> Swift.Bool
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class RookAuthAppleHealth : ObjectiveC.NSObject {
+  @objc public static let shared: RookAppleHealth.RookAuthAppleHealth
+  @objc final public func setClientUUID(with uuid: Swift.String)
+  @objc final public func initRookAH()
+  @objc final public func isAHAvailable() -> Swift.Bool
   @objc deinit
 }
 public struct JSONParameterEncoder : RookAppleHealth.ParameterEncoder {
@@ -226,8 +234,8 @@ public enum HTTPMethod : Swift.String {
     get
   }
 }
-final public class RookExtractionManager {
-  public init()
+@_inheritsConvenienceInitializers @objc final public class RookExtractionManager : ObjectiveC.NSObject {
+  @objc override dynamic public init()
   final public func getSleepSummay(date: Foundation.Date, completion: @escaping (Swift.Result<RookAppleHealth.RookSleepData?, Swift.Error>) -> Swift.Void)
   final public func getPhysicalSummary(date: Foundation.Date, completion: @escaping (Swift.Result<RookAppleHealth.RookPhysicalData, Swift.Error>) -> Swift.Void)
   final public func getBodySummary(date: Foundation.Date, completion: @escaping (Swift.Result<RookAppleHealth.RookBodyData, Swift.Error>) -> Swift.Void)
@@ -453,12 +461,16 @@ public enum HealthDataType : Swift.String, Swift.CaseIterable, Swift.Identifiabl
     get
   }
 }
-public class RookPermissionExtraction {
-  public init()
+@_inheritsConvenienceInitializers @objc public class RookPermissionExtraction : ObjectiveC.NSObject {
+  @objc override dynamic public init()
   public func requestAllPermissions(completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
   public func requestSleepPermissions(completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
   public func requestPhysicalPermissions(completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
   public func requesBodyPermissions(completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
+  @objc public func requestAllPermissionsObjc(completion: @escaping (Swift.Bool, Swift.Error?) -> Swift.Void)
+  @objc public func requestSleepPermissionsObjc(completion: @escaping (Swift.Bool, Swift.Error?) -> Swift.Void)
+  @objc public func requestPhysicalPermissionsObjc(completion: @escaping (Swift.Bool, Swift.Error?) -> Swift.Void)
+  @objc public func requesBodyPermissionsObjc(completion: @escaping (Swift.Bool, Swift.Error?) -> Swift.Void)
   @objc deinit
 }
 public struct RookCalories {

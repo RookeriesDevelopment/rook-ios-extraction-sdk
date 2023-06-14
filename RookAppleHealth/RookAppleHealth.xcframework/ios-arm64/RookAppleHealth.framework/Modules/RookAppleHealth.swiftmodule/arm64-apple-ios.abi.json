@@ -143,6 +143,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RookAppleHealth",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "NetworkResponse",
         "printedName": "NetworkResponse",
@@ -850,11 +860,11 @@
                 "kind": "TypeNominal",
                 "name": "RookAuthAppleHealth",
                 "printedName": "RookAppleHealth.RookAuthAppleHealth",
-                "usr": "s:15RookAppleHealth0a4AuthbC0C"
+                "usr": "c:@M@RookAppleHealth@objc(cs)RookAuthAppleHealth"
               }
             ],
             "declKind": "Var",
-            "usr": "s:15RookAppleHealth0a4AuthbC0C6sharedACvpZ",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookAuthAppleHealth(cpy)shared",
             "mangledName": "$s15RookAppleHealth0a4AuthbC0C6sharedACvpZ",
             "moduleName": "RookAppleHealth",
             "static": true,
@@ -862,7 +872,8 @@
               "HasInitialValue",
               "Final",
               "HasStorage",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "isLet": true,
             "hasStorage": true,
@@ -876,17 +887,18 @@
                     "kind": "TypeNominal",
                     "name": "RookAuthAppleHealth",
                     "printedName": "RookAppleHealth.RookAuthAppleHealth",
-                    "usr": "s:15RookAppleHealth0a4AuthbC0C"
+                    "usr": "c:@M@RookAppleHealth@objc(cs)RookAuthAppleHealth"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:15RookAppleHealth0a4AuthbC0C6sharedACvgZ",
+                "usr": "c:@M@RookAppleHealth@objc(cs)RookAuthAppleHealth(cm)shared",
                 "mangledName": "$s15RookAppleHealth0a4AuthbC0C6sharedACvgZ",
                 "moduleName": "RookAppleHealth",
                 "static": true,
                 "implicit": true,
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "get"
               }
@@ -910,12 +922,14 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15RookAppleHealth0a4AuthbC0C13setClientUUID4withySS_tF",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookAuthAppleHealth(im)setClientUUIDWith:",
             "mangledName": "$s15RookAppleHealth0a4AuthbC0C13setClientUUID4withySS_tF",
             "moduleName": "RookAppleHealth",
+            "objc_name": "setClientUUIDWith:",
             "declAttributes": [
               "Final",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -932,12 +946,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15RookAppleHealth0a4AuthbC0C04initA2AHyyF",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookAuthAppleHealth(im)initRookAH",
             "mangledName": "$s15RookAppleHealth0a4AuthbC0C04initA2AHyyF",
             "moduleName": "RookAppleHealth",
             "declAttributes": [
               "Final",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -955,25 +970,83 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:15RookAppleHealth0a4AuthbC0C13isAHAvailableSbyF",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookAuthAppleHealth(im)isAHAvailable",
             "mangledName": "$s15RookAppleHealth0a4AuthbC0C13isAHAvailableSbyF",
             "moduleName": "RookAppleHealth",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
-        "usr": "s:15RookAppleHealth0a4AuthbC0C",
+        "usr": "c:@M@RookAppleHealth@objc(cs)RookAuthAppleHealth",
         "mangledName": "$s15RookAppleHealth0a4AuthbC0C",
         "moduleName": "RookAppleHealth",
         "declAttributes": [
           "Final",
-          "AccessControl"
+          "AccessControl",
+          "ObjC"
         ],
-        "hasMissingDesignatedInitializers": true
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -8499,14 +8572,19 @@
                 "kind": "TypeNominal",
                 "name": "RookExtractionManager",
                 "printedName": "RookAppleHealth.RookExtractionManager",
-                "usr": "s:15RookAppleHealth0A17ExtractionManagerC"
+                "usr": "c:@M@RookAppleHealth@objc(cs)RookExtractionManager"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15RookAppleHealth0A17ExtractionManagerCACycfc",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookExtractionManager(im)init",
             "mangledName": "$s15RookAppleHealth0A17ExtractionManagerCACycfc",
             "moduleName": "RookAppleHealth",
+            "overriding": true,
+            "objc_name": "init",
             "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
               "AccessControl",
               "RawDocComment"
             ],
@@ -8733,15 +8811,438 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getSleepSummayObjc",
+            "printedName": "getSleepSummayObjc(date:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String : Any]?, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "([Swift.String : Any]?, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "[Swift.String : Any]?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Dictionary",
+                            "printedName": "[Swift.String : Any]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ProtocolComposition",
+                                "printedName": "Any"
+                              }
+                            ],
+                            "usr": "s:SD"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@RookAppleHealth@objc(cs)RookExtractionManager(im)getSleepSummayObjcWithDate:completion:",
+            "mangledName": "$s15RookAppleHealth0A17ExtractionManagerC18getSleepSummayObjc4date10completiony10Foundation4DateV_ySDySSypGSg_s5Error_pSgtctF",
+            "moduleName": "RookAppleHealth",
+            "objc_name": "getSleepSummayObjcWithDate:completion:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getPhysicalSummaryObjc",
+            "printedName": "getPhysicalSummaryObjc(date:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String : Any]?, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "([Swift.String : Any]?, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "[Swift.String : Any]?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Dictionary",
+                            "printedName": "[Swift.String : Any]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ProtocolComposition",
+                                "printedName": "Any"
+                              }
+                            ],
+                            "usr": "s:SD"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@RookAppleHealth@objc(cs)RookExtractionManager(im)getPhysicalSummaryObjcWithDate:completion:",
+            "mangledName": "$s15RookAppleHealth0A17ExtractionManagerC22getPhysicalSummaryObjc4date10completiony10Foundation4DateV_ySDySSypGSg_s5Error_pSgtctF",
+            "moduleName": "RookAppleHealth",
+            "objc_name": "getPhysicalSummaryObjcWithDate:completion:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getBodySummaryObjc",
+            "printedName": "getBodySummaryObjc(date:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String : Any]?, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "([Swift.String : Any]?, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "[Swift.String : Any]?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Dictionary",
+                            "printedName": "[Swift.String : Any]",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ProtocolComposition",
+                                "printedName": "Any"
+                              }
+                            ],
+                            "usr": "s:SD"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@RookAppleHealth@objc(cs)RookExtractionManager(im)getBodySummaryObjcWithDate:completion:",
+            "mangledName": "$s15RookAppleHealth0A17ExtractionManagerC18getBodySummaryObjc4date10completiony10Foundation4DateV_ySDySSypGSg_s5Error_pSgtctF",
+            "moduleName": "RookAppleHealth",
+            "objc_name": "getBodySummaryObjcWithDate:completion:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getLastExtractionDateOfSleep",
+            "printedName": "getLastExtractionDateOfSleep()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Date?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@RookAppleHealth@objc(cs)RookExtractionManager(im)getLastExtractionDateOfSleep",
+            "mangledName": "$s15RookAppleHealth0A17ExtractionManagerC07getLastD11DateOfSleep10Foundation0H0VSgyF",
+            "moduleName": "RookAppleHealth",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getLastExtractionDateOfPhysical",
+            "printedName": "getLastExtractionDateOfPhysical()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Date?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@RookAppleHealth@objc(cs)RookExtractionManager(im)getLastExtractionDateOfPhysical",
+            "mangledName": "$s15RookAppleHealth0A17ExtractionManagerC07getLastD14DateOfPhysical10Foundation0H0VSgyF",
+            "moduleName": "RookAppleHealth",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getLastExtractionDateOfBody",
+            "printedName": "getLastExtractionDateOfBody()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Date?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@RookAppleHealth@objc(cs)RookExtractionManager(im)getLastExtractionDateOfBody",
+            "mangledName": "$s15RookAppleHealth0A17ExtractionManagerC07getLastD10DateOfBody10Foundation0H0VSgyF",
+            "moduleName": "RookAppleHealth",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
-        "usr": "s:15RookAppleHealth0A17ExtractionManagerC",
+        "usr": "c:@M@RookAppleHealth@objc(cs)RookExtractionManager",
         "mangledName": "$s15RookAppleHealth0A17ExtractionManagerC",
         "moduleName": "RookAppleHealth",
         "declAttributes": [
           "AccessControl",
-          "Final"
+          "Final",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -18080,14 +18581,19 @@
                 "kind": "TypeNominal",
                 "name": "RookPermissionExtraction",
                 "printedName": "RookAppleHealth.RookPermissionExtraction",
-                "usr": "s:15RookAppleHealth0A20PermissionExtractionC"
+                "usr": "c:@M@RookAppleHealth@objc(cs)RookPermissionExtraction"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:15RookAppleHealth0A20PermissionExtractionCACycfc",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookPermissionExtraction(im)init",
             "mangledName": "$s15RookAppleHealth0A20PermissionExtractionCACycfc",
             "moduleName": "RookAppleHealth",
+            "overriding": true,
+            "objc_name": "init",
             "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
               "AccessControl",
               "RawDocComment"
             ],
@@ -18301,14 +18807,316 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestAllPermissionsObjc",
+            "printedName": "requestAllPermissionsObjc(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookPermissionExtraction(im)requestAllPermissionsObjcWithCompletion:",
+            "mangledName": "$s15RookAppleHealth0A20PermissionExtractionC25requestAllPermissionsObjc10completionyySb_s5Error_pSgtc_tF",
+            "moduleName": "RookAppleHealth",
+            "objc_name": "requestAllPermissionsObjcWithCompletion:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestSleepPermissionsObjc",
+            "printedName": "requestSleepPermissionsObjc(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookPermissionExtraction(im)requestSleepPermissionsObjcWithCompletion:",
+            "mangledName": "$s15RookAppleHealth0A20PermissionExtractionC27requestSleepPermissionsObjc10completionyySb_s5Error_pSgtc_tF",
+            "moduleName": "RookAppleHealth",
+            "objc_name": "requestSleepPermissionsObjcWithCompletion:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requestPhysicalPermissionsObjc",
+            "printedName": "requestPhysicalPermissionsObjc(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookPermissionExtraction(im)requestPhysicalPermissionsObjcWithCompletion:",
+            "mangledName": "$s15RookAppleHealth0A20PermissionExtractionC30requestPhysicalPermissionsObjc10completionyySb_s5Error_pSgtc_tF",
+            "moduleName": "RookAppleHealth",
+            "objc_name": "requestPhysicalPermissionsObjcWithCompletion:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "requesBodyPermissionsObjc",
+            "printedName": "requesBodyPermissionsObjc(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool, Swift.Error?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.Bool, Swift.Error?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Error?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Error",
+                            "printedName": "Swift.Error",
+                            "usr": "s:s5ErrorP"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RookAppleHealth@objc(cs)RookPermissionExtraction(im)requesBodyPermissionsObjcWithCompletion:",
+            "mangledName": "$s15RookAppleHealth0A20PermissionExtractionC25requesBodyPermissionsObjc10completionyySb_s5Error_pSgtc_tF",
+            "moduleName": "RookAppleHealth",
+            "objc_name": "requesBodyPermissionsObjcWithCompletion:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
-        "usr": "s:15RookAppleHealth0A20PermissionExtractionC",
+        "usr": "c:@M@RookAppleHealth@objc(cs)RookPermissionExtraction",
         "mangledName": "$s15RookAppleHealth0A20PermissionExtractionC",
         "moduleName": "RookAppleHealth",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -25096,6 +25904,13 @@
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/AppleHealthProvider\/Constats\/AppleHealthErrors.swift",
       "kind": "StringLiteral",
+      "offset": 541,
+      "length": 40,
+      "value": "\"Any sample was found for the data type\""
+    },
+    {
+      "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/AppleHealthProvider\/Constats\/AppleHealthErrors.swift",
+      "kind": "StringLiteral",
       "offset": 204,
       "length": 48,
       "value": "\"apple health kit is not avaible un your device\""
@@ -25127,6 +25942,13 @@
       "offset": 474,
       "length": 44,
       "value": "\"There was a problem building the predicate\""
+    },
+    {
+      "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/AppleHealthProvider\/Constats\/AppleHealthErrors.swift",
+      "kind": "StringLiteral",
+      "offset": 541,
+      "length": 40,
+      "value": "\"Any sample was found for the data type\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAuthenticationSDK\/Source\/Storage\/UserDefaults\/Constants\/TokenDefaultsConstants.swift",
@@ -26300,84 +27122,84 @@
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 601,
+      "offset": 604,
       "length": 8,
       "value": "\"aSleep\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 625,
+      "offset": 628,
       "length": 7,
       "value": "\"inBed\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 648,
+      "offset": 651,
       "length": 7,
       "value": "\"aWake\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 675,
+      "offset": 678,
       "length": 11,
       "value": "\"asleepREM\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 707,
+      "offset": 710,
       "length": 12,
       "value": "\"asleepCore\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 740,
+      "offset": 743,
       "length": 12,
       "value": "\"asleepDeep\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 601,
+      "offset": 604,
       "length": 8,
       "value": "\"aSleep\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 625,
+      "offset": 628,
       "length": 7,
       "value": "\"inBed\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 648,
+      "offset": 651,
       "length": 7,
       "value": "\"aWake\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 675,
+      "offset": 678,
       "length": 11,
       "value": "\"asleepREM\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 707,
+      "offset": 710,
       "length": 12,
       "value": "\"asleepCore\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAppleHealth\/Source\/Extraction\/Data\/SummariesProvider\/SleepProvider\/Entities\/SleepAnalysis.swift",
       "kind": "StringLiteral",
-      "offset": 740,
+      "offset": 743,
       "length": 12,
       "value": "\"asleepDeep\""
     },
