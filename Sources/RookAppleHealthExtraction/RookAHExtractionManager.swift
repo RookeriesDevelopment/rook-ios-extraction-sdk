@@ -21,7 +21,6 @@ final public class RookAHExtractionManager {
   // MARK:  Init
   
   public init() {
-    
   }
   
   // MARK:  Helpers
@@ -31,7 +30,7 @@ final public class RookAHExtractionManager {
   /// - parameter date: The Date to fetch the sleep data
   /// - parameter completion: Completion block that containts a result with the sleep data or an error
   public func getSleepSummay(date: Date,
-                             completion: @escaping (Result<RookSleepData?, Error>) -> Void) {
+                             completion: @escaping (Result<RookSleepData, Error>) -> Void) {
     self.extractionManager.getSleepSummay(date: date,
                                           completion: completion)
   }
@@ -55,6 +54,16 @@ final public class RookAHExtractionManager {
                              completion: @escaping (Result<RookBodyData, Error>) -> Void) {
     self.extractionManager.getBodySummary(date: date,
                                           completion: completion)
+  }
+  
+  /// Retrieves in the completion block the user information data or an error.
+  ///
+  /// - parameter date: The Date to fetch the information data
+  /// - parameter completion: Completion block that containts a result with the body data or an error
+  public func getUserInformation(date: Date,
+                                 completion: @escaping (Result<RookUserInfoData, Error>) -> Void) {
+    self.extractionManager.getUserInformation(date: date,
+                                              completion: completion)
   }
   
   /// Returns the last extraction date of the summary provided
