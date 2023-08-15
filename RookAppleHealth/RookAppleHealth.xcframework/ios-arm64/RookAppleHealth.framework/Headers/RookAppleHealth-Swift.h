@@ -267,7 +267,240 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RookAuthAppl
 /// Initializes the rook apple health sdk
 /// first you have to set your client uuid
 - (void)initRookAH SWIFT_METHOD_FAMILY(none);
+- (void)setUserIdWith:(NSString * _Nullable)id;
 - (BOOL)isAHAvailable SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class NSDate;
+@class RookExtractionActivityLevelGranularObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth35RookExtractionActivityDataEventObjc")
+@interface RookExtractionActivityDataEventObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull activityStartTimeDateTime;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull activityEndTimeDateTime;
+@property (nonatomic, readonly) NSInteger activityDurationSeconds;
+@property (nonatomic, readonly, copy) NSString * _Nonnull activityTypeName;
+@property (nonatomic, readonly) NSInteger activeSeconds;
+@property (nonatomic, readonly) NSInteger restSeconds;
+@property (nonatomic, readonly) NSInteger lowIntensitySeconds;
+@property (nonatomic, readonly) NSInteger moderateIntensitySeconds;
+@property (nonatomic, readonly) NSInteger vigorousIntensitySeconds;
+@property (nonatomic, readonly) NSInteger inactivitySeconds;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionActivityLevelGranularObjc *> * _Nonnull activityLevelGranularDataNumber;
+@property (nonatomic, readonly) NSInteger continuousInactivePeriodsNumber;
+@property (nonatomic, readonly) NSInteger activityStrainLevelNumber;
+@property (nonatomic, readonly) NSInteger activityWorkKilojoules;
+@property (nonatomic, readonly) NSInteger activityEnergyKilojoules;
+@property (nonatomic, readonly) NSInteger activityEnergyPlannedKilojoules;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class RookExtractionMetaDataEventObjc;
+@class RookExtractionCaloriesDataEventObjc;
+@class RookExtractionDistanceDataObjc;
+@class RookExtractionHeartRateDataObjc;
+@class RookExtractionMovementDataObjc;
+@class RookExtractionPowerDataObjc;
+@class RookExtractionPositionDataObjc;
+@class RookExtractionOxygenationDataObjc;
+@class RookExtractionStressDataObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth31RookExtractionActivityEventObjc")
+@interface RookExtractionActivityEventObjc : NSObject
+@property (nonatomic, readonly, strong) RookExtractionMetaDataEventObjc * _Nonnull metadata;
+@property (nonatomic, readonly, strong) RookExtractionActivityDataEventObjc * _Nullable activityData;
+@property (nonatomic, readonly, strong) RookExtractionCaloriesDataEventObjc * _Nullable caloriesData;
+@property (nonatomic, readonly, strong) RookExtractionDistanceDataObjc * _Nullable distanceData;
+@property (nonatomic, readonly, strong) RookExtractionHeartRateDataObjc * _Nullable heartRateData;
+@property (nonatomic, readonly, strong) RookExtractionMovementDataObjc * _Nullable movementData;
+@property (nonatomic, readonly, strong) RookExtractionPowerDataObjc * _Nullable powerData;
+@property (nonatomic, readonly, strong) RookExtractionPositionDataObjc * _Nullable positionData;
+@property (nonatomic, readonly, strong) RookExtractionOxygenationDataObjc * _Nullable oxygenationData;
+@property (nonatomic, readonly, strong) RookExtractionStressDataObjc * _Nullable stressData;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth39RookExtractionActivityLevelGranularObjc")
+@interface RookExtractionActivityLevelGranularObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull dateTime;
+@property (nonatomic, readonly) NSInteger activityLevel;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth52RookExtractionBreathingGranularDataBreathsPerMinObjc")
+@interface RookExtractionBreathingGranularDataBreathsPerMinObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger breathsPerMin;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth37RookExtractionCadenceGranularItemObjc")
+@interface RookExtractionCadenceGranularItemObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger cadenceRpm;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth35RookExtractionCaloriesDataEventObjc")
+@interface RookExtractionCaloriesDataEventObjc : NSObject
+@property (nonatomic, readonly) NSInteger caloriesNetIntakeKilocalories;
+@property (nonatomic, readonly) NSInteger caloriesExpenditureKilocalories;
+@property (nonatomic, readonly) NSInteger caloriesNetActiveKilocalories;
+@property (nonatomic, readonly) NSInteger caloriesBasalMetabolicRateKilocalories;
+@property (nonatomic, readonly) NSInteger fatPercentageOfCaloriesPercentage;
+@property (nonatomic, readonly) NSInteger carbohydratePercentageOfCaloriesPercentage;
+@property (nonatomic, readonly) NSInteger proteinPercentageOfCaloriesPercentage;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class RookExtractionStepsGranularDataStepsPerHrObjc;
+@class RookExtractionTraveledDistanceGranularDataMeterObjc;
+@class RookExtractionFloorsClimbedGranularDataFloorObjc;
+@class RookExtractionElevationGranularDataMeterObjc;
+@class RookExtractionSwimmingDistanceGranularDataMeterObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth30RookExtractionDistanceDataObjc")
+@interface RookExtractionDistanceDataObjc : NSObject
+@property (nonatomic) NSInteger stepsNumber;
+@property (nonatomic, copy) NSArray<RookExtractionStepsGranularDataStepsPerHrObjc *> * _Nullable stepsGranularDataStepsPerMin;
+@property (nonatomic) NSInteger walkedDistanceMeters;
+@property (nonatomic) NSInteger traveledDistanceMeters;
+@property (nonatomic, copy) NSArray<RookExtractionTraveledDistanceGranularDataMeterObjc *> * _Nullable traveledDistanceGranularDataMeters;
+@property (nonatomic) NSInteger floorsClimbedNumber;
+@property (nonatomic, copy) NSArray<RookExtractionFloorsClimbedGranularDataFloorObjc *> * _Nullable floorsClimbedGranularDataFloors;
+@property (nonatomic) NSInteger elevationAvgAltitudeMeters;
+@property (nonatomic) NSInteger elevationMinimumAltitudeMeters;
+@property (nonatomic) NSInteger elevationMaxAltitudeMeters;
+@property (nonatomic) NSInteger elevationLossActualAltitudeMeters;
+@property (nonatomic) NSInteger elevationGainActualAltitudeMeters;
+@property (nonatomic) NSInteger elevationPlannedGainMeters;
+@property (nonatomic, copy) NSArray<RookExtractionElevationGranularDataMeterObjc *> * _Nullable elevationGranularDataMeters;
+@property (nonatomic) NSInteger swimmingStrokesNumber;
+@property (nonatomic) NSInteger swimmingNumLapsNumber;
+@property (nonatomic) NSInteger swimmingPoolLengthMeters;
+@property (nonatomic) NSInteger swimmingTotalDistanceMeters;
+@property (nonatomic, copy) NSArray<RookExtractionSwimmingDistanceGranularDataMeterObjc *> * _Nullable swimmingDistanceGranularDataMeters;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth44RookExtractionElevationGranularDataMeterObjc")
+@interface RookExtractionElevationGranularDataMeterObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger elevationChange;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class RookExtractionHeartRateEventObjc;
+@class RookExtractionOxygenationEventObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth30RookExtractionEventManagerObjc")
+@interface RookExtractionEventManagerObjc : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)getPhysicalHeartRateEventsWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<RookExtractionHeartRateEventObjc *> * _Nullable, NSError * _Nullable))completion;
+- (void)getBodyHeartRateEventsWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<RookExtractionHeartRateEventObjc *> * _Nullable, NSError * _Nullable))completion;
+- (void)getPhysicalOxygenationEventsWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<RookExtractionOxygenationEventObjc *> * _Nullable, NSError * _Nullable))completion;
+- (void)getBodyOxygenationEventsWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<RookExtractionOxygenationEventObjc *> * _Nullable, NSError * _Nullable))completion;
+- (void)getActivityEventsWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<RookExtractionActivityEventObjc *> * _Nullable, NSError * _Nullable))completion;
+- (NSDate * _Nullable)getLastExtractionDateOfActivityEvents SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getLastExtractionDateOfBodyHeartRateEvents SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getLastExtractionDateOfPhysicalHeartRateEvents SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getLastExtractionDateOfBodyOxygenationEvents SWIFT_WARN_UNUSED_RESULT;
+- (NSDate * _Nullable)getLastExtractionDateOfPhysicalOxygenationEvents SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth48RookExtractionFloorsClimbedGranularDataFloorObjc")
+@interface RookExtractionFloorsClimbedGranularDataFloorObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger floorsClimbed;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class RookExtractionHrGranularDataBPMObjc;
+@class RookExtractionHrvSdnnGranularDatumObjc;
+@class RookExtractionHrvRmssdGranularDatumObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth31RookExtractionHeartRateDataObjc")
+@interface RookExtractionHeartRateDataObjc : NSObject
+@property (nonatomic) NSInteger hrMaxBPM;
+@property (nonatomic) NSInteger hrMinimumBPM;
+@property (nonatomic) NSInteger hrAvgBPM;
+@property (nonatomic) NSInteger hrRestingBPM;
+@property (nonatomic, copy) NSArray<RookExtractionHrGranularDataBPMObjc *> * _Nullable hrGranularDataBPM;
+@property (nonatomic) NSInteger hrvAvgRmssdNumber;
+@property (nonatomic) NSInteger hrvAvgSdnnNumber;
+@property (nonatomic, copy) NSArray<RookExtractionHrvSdnnGranularDatumObjc *> * _Nullable hrvSdnnGranularDataNumber;
+@property (nonatomic, copy) NSArray<RookExtractionHrvRmssdGranularDatumObjc *> * _Nullable hrvRmssdGranularDataNumber;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class RookHeartRateDataEventExtractionObjc;
+@class NSData;
+
+SWIFT_CLASS("_TtC15RookAppleHealth32RookExtractionHeartRateEventObjc")
+@interface RookExtractionHeartRateEventObjc : NSObject
+@property (nonatomic, strong) RookExtractionMetaDataEventObjc * _Nonnull metadata;
+@property (nonatomic, strong) RookHeartRateDataEventExtractionObjc * _Nonnull heartRateData;
+@property (nonatomic, readonly, copy) NSData * _Nullable dataEvent;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth35RookExtractionHrGranularDataBPMObjc")
+@interface RookExtractionHrGranularDataBPMObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger bpm;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth39RookExtractionHrvRmssdGranularDatumObjc")
+@interface RookExtractionHrvRmssdGranularDatumObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger hrvRmssd;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth38RookExtractionHrvSdnnGranularDatumObjc")
+@interface RookExtractionHrvSdnnGranularDatumObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger hrvSdnn;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth33RookExtractionLapGranularItemObjc")
+@interface RookExtractionLapGranularItemObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger laps;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -276,7 +509,6 @@ SWIFT_CLASS("_TtC15RookAppleHealth21RookExtractionManager")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSDate;
 
 @interface RookExtractionManager (SWIFT_EXTENSION(RookAppleHealth))
 - (void)getSleepSummayObjcWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completion;
@@ -285,6 +517,252 @@ SWIFT_CLASS("_TtC15RookAppleHealth21RookExtractionManager")
 - (NSDate * _Nullable)getLastExtractionDateOfSleep SWIFT_WARN_UNUSED_RESULT;
 - (NSDate * _Nullable)getLastExtractionDateOfPhysical SWIFT_WARN_UNUSED_RESULT;
 - (NSDate * _Nullable)getLastExtractionDateOfBody SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth31RookExtractionMetaDataEventObjc")
+@interface RookExtractionMetaDataEventObjc : NSObject
+@property (nonatomic, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, copy) NSString * _Nullable userId;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull sourceOfData;
+@property (nonatomic) BOOL wasTheUserUnderPhysicalActivity;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class RookExtractionSpeedGranularItemObjc;
+@class RookExtractionVelocityVectorItemObjc;
+@class RookExtractionTorqueGranularItemObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth30RookExtractionMovementDataObjc")
+@interface RookExtractionMovementDataObjc : NSObject
+@property (nonatomic, readonly) NSInteger speedNormalizedMetersPerSecond;
+@property (nonatomic, readonly) NSInteger speedAvgMetersPerSecond;
+@property (nonatomic, readonly) NSInteger speedMaxMetersPerSecond;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionSpeedGranularItemObjc *> * _Nullable speedGranularDataMetersPerSecond;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionVelocityVectorItemObjc *> * _Nullable velocityVectorAvgSpeedAndDirection;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionVelocityVectorItemObjc *> * _Nullable velocityVectorMaxSpeedAndDirection;
+@property (nonatomic, readonly) NSInteger paceAvgMinutesPerKilometer;
+@property (nonatomic, readonly) NSInteger paceMaxMinutesPerKilometer;
+@property (nonatomic, readonly) NSInteger cadenceAvgRpm;
+@property (nonatomic, readonly) NSInteger cadenceMaxRpm;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionCadenceGranularItemObjc *> * _Nullable cadenceGranularDataRpm;
+@property (nonatomic, readonly) NSInteger torqueAvgNewtonMeters;
+@property (nonatomic, readonly) NSInteger torqueMaxNewtonMeters;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionTorqueGranularItemObjc *> * _Nullable torqueGranularDataNewtonMeters;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionLapGranularItemObjc *> * _Nullable lapGranularDataLapsNumber;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class RookExtractionSaturationGranularDataPercentageObjc;
+@class RookExtractionVo2GranularDataLiterPerMinObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth38RookExtractionOxigenationDataEventObjc")
+@interface RookExtractionOxigenationDataEventObjc : NSObject
+@property (nonatomic, readonly) NSInteger saturationAvgPercentage;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionSaturationGranularDataPercentageObjc *> * _Nullable saturationGranularDataPercentage;
+@property (nonatomic, readonly) NSInteger vo2MaxMlPerMinPerKg;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionVo2GranularDataLiterPerMinObjc *> * _Nullable vo2GranularDataLiterPerMin;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth33RookExtractionOxygenationDataObjc")
+@interface RookExtractionOxygenationDataObjc : NSObject
+@property (nonatomic, readonly) NSInteger saturationAvgPercentage;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionSaturationGranularDataPercentageObjc *> * _Nullable saturationGranularDataPercentage;
+@property (nonatomic, readonly) NSInteger vo2MaxMlPerMinPerKg;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionVo2GranularDataLiterPerMinObjc *> * _Nullable vo2GranularDataLiterPerMin;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth34RookExtractionOxygenationEventObjc")
+@interface RookExtractionOxygenationEventObjc : NSObject
+@property (nonatomic, strong) RookExtractionMetaDataEventObjc * _Nonnull metadata;
+@property (nonatomic, strong) RookExtractionOxigenationDataEventObjc * _Nonnull oxygenationData;
+@property (nonatomic, readonly, copy) NSData * _Nullable dataEvent;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@class RookExtractionPositionItemObjc;
+@class RookExtractionPositionGranularItemObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth30RookExtractionPositionDataObjc")
+@interface RookExtractionPositionDataObjc : NSObject
+@property (nonatomic, readonly, strong) RookExtractionPositionItemObjc * _Nullable positionStartLatLngDeg;
+@property (nonatomic, readonly, strong) RookExtractionPositionItemObjc * _Nullable positionCentroidLatLngDeg;
+@property (nonatomic, readonly, strong) RookExtractionPositionItemObjc * _Nullable positionEndLatLngDeg;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionPositionGranularItemObjc *> * _Nullable positionGranularDataLatLngDeg;
+@property (nonatomic, readonly, copy) NSString * _Nullable positionPolylineMapDataSummaryString;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth38RookExtractionPositionGranularItemObjc")
+@interface RookExtractionPositionGranularItemObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) double latitude;
+@property (nonatomic, readonly) double longitude;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth30RookExtractionPositionItemObjc")
+@interface RookExtractionPositionItemObjc : NSObject
+@property (nonatomic, readonly) double latitude;
+@property (nonatomic, readonly) double longitude;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class RookExtractionPowerGranularItemObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth27RookExtractionPowerDataObjc")
+@interface RookExtractionPowerDataObjc : NSObject
+@property (nonatomic, readonly) NSInteger powerAvgWattsNumber;
+@property (nonatomic, readonly) NSInteger powerMaxWattsNumber;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionPowerGranularItemObjc *> * _Nonnull powerGranularDataWattsNumber;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth35RookExtractionPowerGranularItemObjc")
+@interface RookExtractionPowerGranularItemObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger powerWatts;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth50RookExtractionSaturationGranularDataPercentageObjc")
+@interface RookExtractionSaturationGranularDataPercentageObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger saturationPercentage;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth35RookExtractionSpeedGranularItemObjc")
+@interface RookExtractionSpeedGranularItemObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger speedMetersPerSecond;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth45RookExtractionStepsGranularDataStepsPerHrObjc")
+@interface RookExtractionStepsGranularDataStepsPerHrObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger steps;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class RookExtractionTssGranularDataFrom1To500ScoreNumberObjc;
+
+SWIFT_CLASS("_TtC15RookAppleHealth28RookExtractionStressDataObjc")
+@interface RookExtractionStressDataObjc : NSObject
+@property (nonatomic, readonly) NSInteger stressAtRESTDurationSeconds;
+@property (nonatomic, readonly) NSInteger stressDurationSeconds;
+@property (nonatomic, readonly) NSInteger lowStressDurationSeconds;
+@property (nonatomic, readonly) NSInteger mediumStressDurationSeconds;
+@property (nonatomic, readonly) NSInteger highStressDurationSeconds;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionTssGranularDataFrom1To500ScoreNumberObjc *> * _Nullable tssGranularDataFrom1To500ScoreNumber;
+@property (nonatomic, readonly) NSInteger stressAvgLevelNumber;
+@property (nonatomic, readonly) NSInteger stressMaxLevelNumber;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth51RookExtractionSwimmingDistanceGranularDataMeterObjc")
+@interface RookExtractionSwimmingDistanceGranularDataMeterObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger swimmingDistanceMeters;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth36RookExtractionTorqueGranularItemObjc")
+@interface RookExtractionTorqueGranularItemObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger torqueNewtonMeters;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth51RookExtractionTraveledDistanceGranularDataMeterObjc")
+@interface RookExtractionTraveledDistanceGranularDataMeterObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger traveledDistanceMeters;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth54RookExtractionTssGranularDataFrom1To500ScoreNumberObjc")
+@interface RookExtractionTssGranularDataFrom1To500ScoreNumberObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger intervalDurationSeconds;
+@property (nonatomic, readonly) NSInteger tss1To500Score;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth36RookExtractionVelocityVectorItemObjc")
+@interface RookExtractionVelocityVectorItemObjc : NSObject
+@property (nonatomic, readonly) NSInteger speedMetersPerSecond;
+@property (nonatomic, readonly, copy) NSString * _Nonnull direction;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth44RookExtractionVo2GranularDataLiterPerMinObjc")
+@interface RookExtractionVo2GranularDataLiterPerMinObjc : NSObject
+@property (nonatomic, readonly, copy) NSDate * _Nonnull datetime;
+@property (nonatomic, readonly) NSInteger vo2MlPerMinPerKg;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC15RookAppleHealth36RookHeartRateDataEventExtractionObjc")
+@interface RookHeartRateDataEventExtractionObjc : NSObject
+@property (nonatomic, readonly) NSInteger hrMaxBPM;
+@property (nonatomic, readonly) NSInteger hrMinimumBPM;
+@property (nonatomic, readonly) NSInteger hrAvgBPM;
+@property (nonatomic, readonly) NSInteger hrRestingBPM;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionHrGranularDataBPMObjc *> * _Nullable hrGranularDataBPM;
+@property (nonatomic, readonly) NSInteger hrvAvgRmssdNumber;
+@property (nonatomic, readonly) NSInteger hrvAvgSdnnNumber;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionHrvSdnnGranularDatumObjc *> * _Nullable hrvSdnnGranularData;
+@property (nonatomic, readonly, copy) NSArray<RookExtractionHrvRmssdGranularDatumObjc *> * _Nullable hrvRmssdGranularData;
+- (nonnull instancetype)initWithHrMaxBPM:(NSInteger)hrMaxBPM hrMinimumBPM:(NSInteger)hrMinimumBPM hrAvgBPM:(NSInteger)hrAvgBPM hrRestingBPM:(NSInteger)hrRestingBPM hrGranularDataBPM:(NSArray<RookExtractionHrGranularDataBPMObjc *> * _Nonnull)hrGranularDataBPM hrvAvgRmssdNumber:(NSInteger)hrvAvgRmssdNumber hrvAvgSdnnNumber:(NSInteger)hrvAvgSdnnNumber hrvSdnnGranularData:(NSArray<RookExtractionHrvSdnnGranularDatumObjc *> * _Nonnull)hrvSdnnGranularData hrvRmssdGranularData:(NSArray<RookExtractionHrvRmssdGranularDatumObjc *> * _Nonnull)hrvRmssdGranularData OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

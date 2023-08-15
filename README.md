@@ -77,6 +77,7 @@ There are dedicated functions for each health pillar (Sleep, Physical, and Body)
 | `requestAllPermissions(completion: @escaping (Result<Bool, Error>)` | Sends a request for all the health permissions. |
 | `requestSleepPermissions(completion: @escaping (Result<Bool, Error>) -> Void)` | Sends a request for the sleep permission. |
 | `requestPhysicalPermissions(completion: @escaping (Result<Bool, Error>)` | Sends a request for the physical permissions. |
+| `requestUserInfoPersmissions(completion: @escaping (Result<Bool, Error>) -> Void)` | Sends a request for the user information permissons. |
 | `requesBodyPermissions(completion: @escaping (Result<Bool, Error>) -> Void)` | Sends a request for the body permissions. |
 
 Example:
@@ -107,6 +108,8 @@ The user is able to enable or disable the permission in the settings app.
 
 ### Retrieving data
 
+#### RookAHExtractionManager
+
 To retrieve any type of summary, you need to provide a date. This date should not be the current day
 
 To get health data, create a instance of the class `RookAHExtractionManager` that contains the following methods
@@ -116,6 +119,7 @@ To get health data, create a instance of the class `RookAHExtractionManager` tha
 | getSleepSummay(date: Date, completion: @escaping (Result<RookSleepData?, Error>) -> Void) | Retrieves in the completion block the sleep data of the user or an error. |
 | getPhysicalSummary(date: Date, completion: @escaping (Result<RookPhysicalData, Error>) -> Void) | Retrieves in the completion block the physical data of the user or an error. |
 | getBodySummary(date: Date, completion: @escaping (Result<RookBodyData, Error>) -> Void) | Retrieves in the completion block the body data of the user or an error. |
+| getUserInformation(date: Date, completion: @escaping (Result<RookUserInfoData, Error>)) | Retrieves in the completion block the user information data or an error. |
 | getLastExtractionDate(of summary: RookDataType) -> Date? | Returns the last date extraction of the summary |
 
 For example, if you want to get yesterday's sleep summary, call `getSleepSummary`. It will return a `RookSleepData` instance or return an error.
@@ -141,6 +145,26 @@ func getSleepSummary() {
 }
 
 ```
+
+#### RookAHEventExtractionManager
+
+The Access point all the event health data managed by RookAppleHealth.
+
+**Note: All the data introduced manually in apple health container, will be ignored.**
+
+Use `RookAHPermissionManager` object to request permission to read  health data from Health kit.
+Once permission is granted, you can use the `RookAHEventExtractionManager` to fetch all events data
+
+`RookAHExtractionManager`contains the methods listed bellow:
+
+| Method | Description |
+| ------ | ----------- |
+| `getPhysicalHeartRateEvents(date: Date, completion: @escaping(Result<[RookHeartRateEvent],Error>) -> Void)` | Returns `[RookHeartRateEvent]` an array of objects with all the data of the heart rate events while the user was in a physical activity |
+| `public func getBodyHeartRateEvents(date: Date, completion: @escaping(Result<[RookHeartRateEvent],Error>) -> Void)` | Returns `[RookHeartRateEvent]` an array of objects with all the data of the heart rate events while the user was not in a physical activity |
+| `public func getPhysicalOxygenationEvents(date: Date, completion: @escaping(Result<[RookOxygentationEvent],Error>) -> Void)` | Returns `[RookOxygentationEvent]` an array of objects with all the data of the oxygenation events while the user was in a physical activity |
+| `public func getBodyOxygenationEvents(date: Date, completion: @escaping(Result<[RookOxygentationEvent],Error>) -> Void)` | Returns `[RookOxygentationEvent]` an array of objects with all the data of the oxygenation events while the user was not in a physical activity |
+| `public func getActivityEvents(date: Date, completion: @escaping (Result<[RookActivityEvent], Error>) -> Void)` | Returns `[RookActivityEvent]` an array of objects with all the data of the activity events |
+
 
 ### Keeping track of the last time a summary was retrieved
 
