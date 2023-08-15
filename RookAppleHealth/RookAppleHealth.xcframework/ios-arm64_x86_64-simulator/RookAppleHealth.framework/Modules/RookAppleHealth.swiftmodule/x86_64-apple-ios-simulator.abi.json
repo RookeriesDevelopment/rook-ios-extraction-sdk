@@ -3428,6 +3428,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RookAppleHealth",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "RookActivityLevelGranular",
         "printedName": "RookActivityLevelGranular",
@@ -26426,6 +26436,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RookAppleHealth",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "HealthKit",
         "printedName": "HealthKit",
         "declKind": "Import",
@@ -26658,6 +26678,43 @@
             "moduleName": "RookAppleHealth"
           },
           {
+            "kind": "Var",
+            "name": "NotAuthorizedError",
+            "printedName": "NotAuthorizedError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RookAppleHealth.NetworkError.Type) -> RookAppleHealth.NetworkError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NetworkError",
+                    "printedName": "RookAppleHealth.NetworkError",
+                    "usr": "s:15RookAppleHealth12NetworkErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RookAppleHealth.NetworkError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NetworkError",
+                        "printedName": "RookAppleHealth.NetworkError",
+                        "usr": "s:15RookAppleHealth12NetworkErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15RookAppleHealth12NetworkErrorO013NotAuthorizedE0yA2CmF",
+            "mangledName": "$s15RookAppleHealth12NetworkErrorO013NotAuthorizedE0yA2CmF",
+            "moduleName": "RookAppleHealth"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(rawValue:)",
@@ -26789,6 +26846,16 @@
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RookAppleHealth",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -63405,6 +63472,13 @@
       "value": "[]"
     },
     {
+      "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookUsersSDK\/Source\/User\/Constants\/RooKUserStorageConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 216,
+      "length": 22,
+      "value": "\"rook_connect_user_id\""
+    },
+    {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAuthenticationSDK\/Source\/networking\/Encoding\/ParameterEncoding.swift",
       "kind": "StringLiteral",
       "offset": 391,
@@ -63435,6 +63509,13 @@
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAuthenticationSDK\/Source\/networking\/Encoding\/ParameterEncoding.swift",
       "kind": "StringLiteral",
+      "offset": 568,
+      "length": 20,
+      "value": "\"NotAuthorizedError\""
+    },
+    {
+      "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAuthenticationSDK\/Source\/networking\/Encoding\/ParameterEncoding.swift",
+      "kind": "StringLiteral",
       "offset": 391,
       "length": 22,
       "value": "\"Parameters were nil.\""
@@ -63459,6 +63540,13 @@
       "offset": 517,
       "length": 22,
       "value": "\"no data was returned\""
+    },
+    {
+      "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAuthenticationSDK\/Source\/networking\/Encoding\/ParameterEncoding.swift",
+      "kind": "StringLiteral",
+      "offset": 568,
+      "length": 20,
+      "value": "\"NotAuthorizedError\""
     },
     {
       "filePath": "\/Users\/franciscoguerreroescamilla\/Developer\/RookMotion\/SDK's\/RookAuthenticationSDK\/RookAuthenticationSDK\/Source\/Authentication\/RAAuthenticationManager.swift",

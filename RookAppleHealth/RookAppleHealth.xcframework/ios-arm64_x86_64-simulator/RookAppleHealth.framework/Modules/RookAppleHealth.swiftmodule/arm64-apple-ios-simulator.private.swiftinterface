@@ -566,6 +566,7 @@ public enum NetworkError : Swift.String, Swift.Error {
   case encodingFailed
   case missingUrl
   case noData
+  case NotAuthorizedError
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
