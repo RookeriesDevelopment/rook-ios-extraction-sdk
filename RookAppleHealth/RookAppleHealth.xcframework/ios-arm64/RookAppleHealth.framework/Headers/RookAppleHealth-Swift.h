@@ -264,6 +264,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RookAuthAppl
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Sets your client uuid to configure the sdk
 - (void)setClientUUIDWith:(NSString * _Nonnull)uuid;
+- (void)setExcludeManualData:(BOOL)excludeManual;
 /// Initializes the rook apple health sdk
 /// first you have to set your client uuid
 - (void)initRookAH SWIFT_METHOD_FAMILY(none);
@@ -422,6 +423,15 @@ SWIFT_CLASS("_TtC15RookAppleHealth30RookExtractionEventManagerObjc")
 - (NSDate * _Nullable)getLastExtractionDateOfPhysicalHeartRateEvents SWIFT_WARN_UNUSED_RESULT;
 - (NSDate * _Nullable)getLastExtractionDateOfBodyOxygenationEvents SWIFT_WARN_UNUSED_RESULT;
 - (NSDate * _Nullable)getLastExtractionDateOfPhysicalOxygenationEvents SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface RookExtractionEventManagerObjc (SWIFT_EXTENSION(RookAppleHealth))
+- (void)getPhysicalHeartRateEventsDictionaryWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completion;
+- (void)getBodyHeartRateEventsDictionaryWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completion;
+- (void)getPhysicalOxygenationEventsDictionaryWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completion;
+- (void)getBodyOxygenationEventsDictionaryWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completion;
+- (void)getActivityEventsDictionaryWithDate:(NSDate * _Nonnull)date completion:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completion;
 @end
 
 

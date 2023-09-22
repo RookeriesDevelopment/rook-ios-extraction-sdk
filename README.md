@@ -121,6 +121,7 @@ To get health data, create a instance of the class `RookAHExtractionManager` tha
 | getBodySummary(date: Date, completion: @escaping (Result<RookBodyData, Error>) -> Void) | Retrieves in the completion block the body data of the user or an error. |
 | getUserInformation(date: Date, completion: @escaping (Result<RookUserInfoData, Error>)) | Retrieves in the completion block the user information data or an error. |
 | getLastExtractionDate(of summary: RookDataType) -> Date? | Returns the last date extraction of the summary |
+| getUserTimeZone(completion: @escaping (Result<RookUserTimeZone, Error>) -> Void) | Retrieves in the completion block the current user's time zone or an error. |
 
 For example, if you want to get yesterday's sleep summary, call `getSleepSummary`. It will return a `RookSleepData` instance or return an error.
 
