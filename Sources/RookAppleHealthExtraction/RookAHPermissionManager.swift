@@ -24,7 +24,7 @@ public final class RookAHPermissionManager {
     
   }
   
-  // MARK:  Helepers
+  // MARK:  Helpers
   
   /// HealthKit performs these requests asynchronously. If you call this method the system automatically displays the permission form, listing all the requested permissions
   ///

@@ -312,7 +312,9 @@ public struct RookPositionData : Swift.Encodable {
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class RookAuthAppleHealth : ObjectiveC.NSObject {
   @objc public static let shared: RookAppleHealth.RookAuthAppleHealth
   @objc final public func setClientUUID(with uuid: Swift.String)
+  @objc final public func setExcludeManualData(_ excludeManual: Swift.Bool)
   @objc final public func initRookAH()
+  final public func initRookAH(completion: @escaping (Swift.Result<Swift.Bool, Swift.Error>) -> Swift.Void)
   @objc final public func setUserId(with id: Swift.String?)
   @objc final public func isAHAvailable() -> Swift.Bool
   @objc deinit
@@ -551,6 +553,17 @@ public struct RookTemperatureExtractionItem : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
+extension RookAppleHealth.RookExtractionEventManagerObjc {
+  @objc final public func getPhysicalHeartRateEventsDictionary(date: Foundation.Date, completion: @escaping ([[Swift.String : Any]]?, Swift.Error?) -> Swift.Void)
+  @objc final public func getBodyHeartRateEventsDictionary(date: Foundation.Date, completion: @escaping ([[Swift.String : Any]]?, Swift.Error?) -> Swift.Void)
+  @objc final public func getPhysicalOxygenationEventsDictionary(date: Foundation.Date, completion: @escaping ([[Swift.String : Any]]?, Swift.Error?) -> Swift.Void)
+  @objc final public func getBodyOxygenationEventsDictionary(date: Foundation.Date, completion: @escaping ([[Swift.String : Any]]?, Swift.Error?) -> Swift.Void)
+  @objc final public func getActivityEventsDictionary(date: Foundation.Date, completion: @escaping ([[Swift.String : Any]]?, Swift.Error?) -> Swift.Void)
+}
+public struct UserTimeZone {
+  public let timeZone: Swift.String
+  public let offset: Swift.Int
+}
 public struct RookCadenceGranularItem : Swift.Encodable {
   public let datetime: Foundation.Date
   public let intervalDurationSeconds: Swift.Int
@@ -591,6 +604,7 @@ public struct RookActivityEvent : Swift.Encodable {
 }
 public enum RookError : Swift.String, Swift.Error {
   case SDKUnavailable
+  case emptySamples
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
@@ -732,6 +746,7 @@ public struct RookOxigenationDataEvent : Swift.Codable {
   final public func getBodySummary(date: Foundation.Date, completion: @escaping (Swift.Result<RookAppleHealth.RookBodyData, Swift.Error>) -> Swift.Void)
   final public func getUserInformation(date: Foundation.Date, completion: @escaping (Swift.Result<RookAppleHealth.RookUserInfoData, Swift.Error>) -> Swift.Void)
   final public func getLastExtractionDate(of summary: RookAppleHealth.RookDataType) -> Foundation.Date?
+  final public func getUserTimeZone(completion: @escaping (Swift.Result<RookAppleHealth.UserTimeZone, Swift.Error>) -> Swift.Void)
   @objc deinit
 }
 public struct RookPhysicalData : Swift.Codable {
@@ -955,6 +970,9 @@ public enum HealthDataType : Swift.String, Swift.CaseIterable, Swift.Identifiabl
   case respiratoryRate
   case biologicalSex
   case dateOfBirth
+  case bloodPressureSystolic
+  case bloodPressureDiastolic
+  case bloodGlucose
   public init?(rawValue: Swift.String)
   public typealias AllCases = [RookAppleHealth.HealthDataType]
   public typealias ID = RookAppleHealth.HealthDataType
@@ -1164,7 +1182,7 @@ public struct BloodPressureSystolicDiastolicBpNumber : Swift.Codable {
 }
 public struct BloodPressureGranularDataSystolicDiastolicBpNumber : Swift.Codable {
   public let datetime: Foundation.Date
-  public let bloodPressureSystolicDiastolicBpNumber: [RookAppleHealth.BloodPressureSystolicDiastolicBpNumber]
+  public let systolicBp: Swift.Int, diastolicBp: Swift.Int
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
