@@ -76,7 +76,7 @@ final public class RookAHExtractionManager {
   ///Returns `RookUserTimeZone` object with the user's time zone
   ///
   /// - parameter completion: Completion block that containts a result with theuser's time zone or an error
-  public func getUserTimeZoness(completion: @escaping (Result<RookUserTimeZone, Error>) -> Void) {
+  public func getUserTimeZone(completion: @escaping (Result<RookUserTimeZone, Error>) -> Void) {
     self.extractionManager.getUserTimeZone() { result in
       switch result {
       case .success(let timeZone):
