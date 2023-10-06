@@ -21,6 +21,11 @@ public final class RookAHConfiguration {
     RookAuthAppleHealth.shared.setClientUUID(with: uuid)
   }
   
+  /// Sets your environment to configure the sdk
+  public func setEnvironment(_ environment: RookExtractionEnvironment) {
+    RookAuthAppleHealth.shared.setEnvironment(environment)
+  }
+  
   /// Initializes the rook apple health sdk
   /// first you have to set your client uuid
   public func initRookAH() {
