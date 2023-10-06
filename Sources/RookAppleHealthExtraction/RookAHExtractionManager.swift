@@ -28,8 +28,8 @@ final public class RookAHExtractionManager {
   ///Returns `RookSleepData` object with sleep data of the date provided
   ///
   /// - parameter date: The Date to fetch the sleep data
-  /// - parameter completion: Completion block that containts a result with the sleep data or an error
-  public func getSleepSummay(date: Date,
+  /// - parameter completion: Completion block that contains a result with the sleep data or an error
+  public func getSleepSummary(date: Date,
                              completion: @escaping (Result<RookSleepData, Error>) -> Void) {
     self.extractionManager.getSleepSummay(date: date,
                                           completion: completion)
@@ -39,7 +39,7 @@ final public class RookAHExtractionManager {
   ///Returns `RookPhysicalData` object with physical data of the date provided
   ///
   /// - parameter date: The Date to fetch the physical data
-  /// - parameter completion: Completion block that containts a result with the physical data or an error
+  /// - parameter completion: Completion block that contains a result with the physical data or an error
   public func getPhysicalSummary(date: Date,
                                  completion: @escaping (Result<RookPhysicalData, Error>) -> Void) {
     self.extractionManager.getPhysicalSummary(date: date,
@@ -49,7 +49,7 @@ final public class RookAHExtractionManager {
   ///Returns `RookBodyData` object with body data of the date provided
   ///
   /// - parameter date: The Date to fetch the body data
-  /// - parameter completion: Completion block that containts a result with the body data or an error
+  /// - parameter completion: Completion block that contains a result with the body data or an error
   public func getBodySummary(date: Date,
                              completion: @escaping (Result<RookBodyData, Error>) -> Void) {
     self.extractionManager.getBodySummary(date: date,
@@ -59,7 +59,7 @@ final public class RookAHExtractionManager {
   /// Retrieves in the completion block the user information data or an error.
   ///
   /// - parameter date: The Date to fetch the information data
-  /// - parameter completion: Completion block that containts a result with the body data or an error
+  /// - parameter completion: Completion block that contains a result with the body data or an error
   public func getUserInformation(date: Date,
                                  completion: @escaping (Result<RookUserInfoData, Error>) -> Void) {
     self.extractionManager.getUserInformation(date: date,
@@ -75,7 +75,7 @@ final public class RookAHExtractionManager {
   
   ///Returns `RookUserTimeZone` object with the user's time zone
   ///
-  /// - parameter completion: Completion block that containts a result with theuser's time zone or an error
+  /// - parameter completion: Completion block that contains a result with the user's time zone or an error
   public func getUserTimeZone(completion: @escaping (Result<RookUserTimeZone, Error>) -> Void) {
     self.extractionManager.getUserTimeZone() { result in
       switch result {

@@ -50,7 +50,7 @@ public final class RookAHPermissionManager {
   /// HealthKit performs these requests asynchronously. If you call this method the system automatically displays the permission form, listing all the requested permissions
   ///
   ///  Use this method to ask permission for body the data types
-  public func requesBodyPermissions(completion: @escaping (Result<Bool, Error>) -> Void) {
+  public func requestBodyPermissions(completion: @escaping (Result<Bool, Error>) -> Void) {
     permissionManager.requesBodyPermissions(completion: completion)
   }
   

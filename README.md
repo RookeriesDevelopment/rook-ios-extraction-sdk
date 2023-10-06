@@ -46,7 +46,7 @@ Then declare the privacy permissions used by this SDK. You will need to include 
 
 To configure Rook Apple Health SDK, you need to follow this steps:
 
-1. Import th apple health sdk
+1. Import the apple health sdk
 
 ```swift
 import RookAppleHealthExtraction
@@ -61,10 +61,27 @@ func application(_ application: UIApplication
                  didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     
     RookAHConfiguration.shared.setClientUUID(with: "9593d0ec-47c1-4477-a8ce-10d3f4f43127")
+    RookAHConfiguration.shared.setEnvironment(.sandbox)
     RookAHConfiguration.shared.initRookAH()
     return true
 }
 ```
+
+### Configuration
+
+#### RookAHConfiguration
+
+`RookAHConfiguration` configures the sdk before start using the sdk set your client uuid and init the sdk.
+This class conforms the singleton pattern to get access use the shared property. 
+
+| Function | Description |
+| -------- | ----------- |
+| `setClientUUID(with uuid: String)` | Sets your client uuid to configure the sdk |
+| `setEnvironment(_ environment: RookExtractionEnvironment)` | Sets your environment to configure the sdk |
+| `initRookAH()` | Initializes the rook apple health sdk |
+| `isAHAvailable() -> Bool` | Return a `Bool` indicating if the sdk is available |
+
+**Note: If the environment is not set, the sdk will work in sandbox environment.**
 
 ### Permissions
 
@@ -87,7 +104,7 @@ Example:
 private let permissionManager = RookAHPermissionManager()
 
 func requestBodyPermission() {
-  permissionManager.requesBodyPermissions() { result in
+  permissionManager.requestBodyPermissions() { result in
       switch result {
       case .success(let success):
         debugPrint(success)
@@ -116,7 +133,7 @@ To get health data, create a instance of the class `RookAHExtractionManager` tha
 
 | Method | Description |
 | ------ | ----------- |
-| getSleepSummay(date: Date, completion: @escaping (Result<RookSleepData?, Error>) -> Void) | Retrieves in the completion block the sleep data of the user or an error. |
+| getSleepSummary(date: Date, completion: @escaping (Result<RookSleepData?, Error>) -> Void) | Retrieves in the completion block the sleep data of the user or an error. |
 | getPhysicalSummary(date: Date, completion: @escaping (Result<RookPhysicalData, Error>) -> Void) | Retrieves in the completion block the physical data of the user or an error. |
 | getBodySummary(date: Date, completion: @escaping (Result<RookBodyData, Error>) -> Void) | Retrieves in the completion block the body data of the user or an error. |
 | getUserInformation(date: Date, completion: @escaping (Result<RookUserInfoData, Error>)) | Retrieves in the completion block the user information data or an error. |
