@@ -46,7 +46,7 @@ Then declare the privacy permissions used by this SDK. You will need to include 
 
 To configure Rook Apple Health SDK, you need to follow this steps:
 
-1. Import th apple health sdk
+1. Import the apple health sdk
 
 ```swift
 import RookAppleHealthExtraction
@@ -133,7 +133,7 @@ To get health data, create a instance of the class `RookAHExtractionManager` tha
 
 | Method | Description |
 | ------ | ----------- |
-| getSleepSummay(date: Date, completion: @escaping (Result<RookSleepData?, Error>) -> Void) | Retrieves in the completion block the sleep data of the user or an error. |
+| getSleepSummary(date: Date, completion: @escaping (Result<RookSleepData?, Error>) -> Void) | Retrieves in the completion block the sleep data of the user or an error. |
 | getPhysicalSummary(date: Date, completion: @escaping (Result<RookPhysicalData, Error>) -> Void) | Retrieves in the completion block the physical data of the user or an error. |
 | getBodySummary(date: Date, completion: @escaping (Result<RookBodyData, Error>) -> Void) | Retrieves in the completion block the body data of the user or an error. |
 | getUserInformation(date: Date, completion: @escaping (Result<RookUserInfoData, Error>)) | Retrieves in the completion block the user information data or an error. |
