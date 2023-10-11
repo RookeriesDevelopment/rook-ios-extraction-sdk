@@ -31,8 +31,8 @@ final public class RookAHExtractionManager {
   /// - parameter completion: Completion block that contains a result with the sleep data or an error
   public func getSleepSummary(date: Date,
                              completion: @escaping (Result<RookSleepData, Error>) -> Void) {
-    self.extractionManager.getSleepSummay(date: date,
-                                          completion: completion)
+    self.extractionManager.getSleepSummary(date: date,
+                                           completion: completion)
   }
   
   
