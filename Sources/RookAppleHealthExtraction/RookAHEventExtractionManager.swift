@@ -28,7 +28,7 @@ final public class RookAHEventExtractionManager {
   ///Returns `[RookHeartRateEvent]` an array of objects with all the data of the heart rate events while the user was in a physical activity
   ///
   /// - parameter date: The Date to fetch the heart rate events
-  /// - parameter completion: Completion block that containts a result with the events data or an error
+  /// - parameter completion: Completion block that contains a result with the events data or an error
   public func getPhysicalHeartRateEvents(date: Date,
                                          completion: @escaping(Result<[RookHeartRateEvent],Error>) -> Void) {
     self.eventManager.getPhysicalHeartRateEvents(date: date,
@@ -38,7 +38,7 @@ final public class RookAHEventExtractionManager {
   ///Returns `[RookHeartRateEvent]` an array of objects with all the data of the heart rate events while the user was not in a physical activity
   ///
   /// - parameter date: The Date to fetch the heart rate events
-  /// - parameter completion: Completion block that containts a result with the events data or an error
+  /// - parameter completion: Completion block that contains a result with the events data or an error
   public func getBodyHeartRateEvents(date: Date,
                                      completion: @escaping(Result<[RookHeartRateEvent],Error>) -> Void) {
     self.eventManager.getBodyHeartRateEvents(date: date,
@@ -48,7 +48,7 @@ final public class RookAHEventExtractionManager {
   ///Returns `[RookOxygentationEvent]` an array of objects with all the data of the oxygenation events while the user was in a physical activity
   ///
   /// - parameter date: The Date to fetch the heart rate events
-  /// - parameter completion: Completion block that containts a result with the events data or an error
+  /// - parameter completion: Completion block that contains a result with the events data or an error
   public func getPhysicalOxygenationEvents(date: Date,
                                            completion: @escaping(Result<[RookOxygentationEvent],Error>) -> Void) {
     self.eventManager.getPhysicalOxygenationEvents(date: date,
@@ -58,7 +58,7 @@ final public class RookAHEventExtractionManager {
   ///Returns `[RookOxygentationEvent]` an array of objects with all the data of the oxygenation events while the user was not in a physical activity
   ///
   /// - parameter date: The Date to fetch the heart rate events
-  /// - parameter completion: Completion block that containts a result with the events data or an error
+  /// - parameter completion: Completion block that contains a result with the events data or an error
   public func getBodyOxygenationEvents(date: Date,
                                        completion: @escaping(Result<[RookOxygentationEvent],Error>) -> Void) {
     self.eventManager.getBodyOxygenationEvents(date: date,
@@ -68,7 +68,7 @@ final public class RookAHEventExtractionManager {
   ///Returns `[RookActivityEvent]` an array of objects with all the data of the activity events 
   ///
   /// - parameter date: The Date to fetch the heart rate events
-  /// - parameter completion: Completion block that containts a result with the events data or an error
+  /// - parameter completion: Completion block that contains a result with the events data or an error
   public func getActivityEvents(date: Date,
                                 completion: @escaping (Result<[RookActivityEvent], Error>) -> Void) {
     self.eventManager.getActivityEvents(date: date,
