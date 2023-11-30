@@ -51,7 +51,7 @@ public final class RookAHPermissionManager {
   ///
   ///  Use this method to ask permission for body the data types
   public func requestBodyPermissions(completion: @escaping (Result<Bool, Error>) -> Void) {
-    permissionManager.requesBodyPermissions(completion: completion)
+    permissionManager.requestBodyPermissions(completion: completion)
   }
   
 }

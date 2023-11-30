@@ -94,8 +94,8 @@ There are dedicated functions for each health pillar (Sleep, Physical, and Body)
 | `requestAllPermissions(completion: @escaping (Result<Bool, Error>)` | Sends a request for all the health permissions. |
 | `requestSleepPermissions(completion: @escaping (Result<Bool, Error>) -> Void)` | Sends a request for the sleep permission. |
 | `requestPhysicalPermissions(completion: @escaping (Result<Bool, Error>)` | Sends a request for the physical permissions. |
-| `requestUserInfoPersmissions(completion: @escaping (Result<Bool, Error>) -> Void)` | Sends a request for the user information permissons. |
-| `requesBodyPermissions(completion: @escaping (Result<Bool, Error>) -> Void)` | Sends a request for the body permissions. |
+| `requestUserInfoPermissions(completion: @escaping (Result<Bool, Error>) -> Void)` | Sends a request for the user information permissions. |
+| `requestBodyPermissions(completion: @escaping (Result<Bool, Error>) -> Void)` | Sends a request for the body permissions. |
 
 Example:
 

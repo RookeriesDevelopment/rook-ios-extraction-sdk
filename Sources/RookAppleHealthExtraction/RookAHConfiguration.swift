@@ -16,9 +16,9 @@ public final class RookAHConfiguration {
   ///Returns the shated RookAHConfiguration object
   public static let shared: RookAHConfiguration = RookAHConfiguration()
   
-  /// Sets your client uuid to configure the sdk
-  public func setClientUUID(with uuid: String) {
-    RookAuthAppleHealth.shared.setClientUUID(with: uuid)
+  /// Sets your client uuid and secrete to configure the sdk
+  public func setConfiguration(uuid: String, secreteKey: String) {
+    RookAuthAppleHealth.shared.setClientUUID(with: uuid, secretKey: secreteKey)
   }
   
   /// Sets your environment to configure the sdk
