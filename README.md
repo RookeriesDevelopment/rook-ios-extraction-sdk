@@ -1,5 +1,9 @@
 # Rook Apple Health  SDK
 
+Apple Health does not have an API. As no data is stored in the cloud, you need to retrieve it locally from your user's devices. This can be done by implementing Apple HealthKit and all its data retrieval methods into your iOS
+
+Rook Apple Health SDK allows developers to ask their users to access and share their health data through Apple HealthKit
+
 This SDK enables apps to extract data from Apple Health . `rook_apple_health_connect` is part of Rook Extraction, a series of SDKs dedicated to extracting Health Data from a variety of [Data Sources](https://docs.tryrook.io/docs/Definitions#data-sources).
 
 
@@ -10,6 +14,12 @@ This SDK enables apps to extract data from Apple Health . `rook_apple_health_con
 - Retrieve a [Sleep Summary](https://docs.tryrook.io/docs/DataStructure/SleepHealth#summaries) from a specific day.
 - Retrieve a [Physical Summary](https://docs.tryrook.io/docs/DataStructure/PhysicalHealth#summaries) from a specific day.
 - Retrieve a [Body Summary](https://docs.tryrook.io/docs/DataStructure/BodyHealth#summaries) from a specific day.
+- Extraction Heart rate events
+- Extraction Oxygenation events
+- Extraction Activity events
+- Extraction Temperature Events
+- Extraction Blood Glucose Events
+- Extraction Blood Pressure Events
 
 ## Installation
 
@@ -60,7 +70,7 @@ import RookAppleHealth
 func application(_ application: UIApplication
                  didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     
-    RookAHConfiguration.shared.setClientUUID(with: "9593d0ec-47c1-4477-a8ce-10d3f4f43127")
+    RookAHConfiguration.shared.setConfiguration(uuid: String, secreteKey: String)
     RookAHConfiguration.shared.setEnvironment(.sandbox)
     RookAHConfiguration.shared.initRookAH()
     return true
@@ -80,8 +90,11 @@ This class conforms the singleton pattern to get access use the shared property.
 | `setEnvironment(_ environment: RookExtractionEnvironment)` | Sets your environment to configure the sdk |
 | `initRookAH()` | Initializes the rook apple health sdk |
 | `isAHAvailable() -> Bool` | Return a `Bool` indicating if the sdk is available |
+| `setUserId(_ id: String)`| Sets the user's id |
 
 **Note: If the environment is not set, the sdk will work in sandbox environment.**
+
+**Note: It is highly recommend to set the user id before request permissions or fetch health data.**
 
 ### Permissions
 
@@ -147,7 +160,7 @@ let extractionManager: RookAHExtractionManager = RookAHExtractionManager()
 
 func getSleepSummary() {
   let date: Date = Date()
-  extractionManager.getSleepSummay(date: date) { result in
+  extractionManager.getSleepSummary(date: date) { result in
 
     switch (result) {
       case .success(let data):
@@ -155,7 +168,7 @@ func getSleepSummary() {
           debugPrint("sleep data \(data)")
         }
       case .failure(let error):
-        debugPrint("error while fecthing sleep \(error)")
+        debugPrint("error while fetching sleep \(error)")
     }
 
   }
@@ -182,6 +195,9 @@ Once permission is granted, you can use the `RookAHEventExtractionManager` to fe
 | `public func getPhysicalOxygenationEvents(date: Date, completion: @escaping(Result<[RookOxygentationEvent],Error>) -> Void)` | Returns `[RookOxygentationEvent]` an array of objects with all the data of the oxygenation events while the user was in a physical activity |
 | `public func getBodyOxygenationEvents(date: Date, completion: @escaping(Result<[RookOxygentationEvent],Error>) -> Void)` | Returns `[RookOxygentationEvent]` an array of objects with all the data of the oxygenation events while the user was not in a physical activity |
 | `public func getActivityEvents(date: Date, completion: @escaping (Result<[RookActivityEvent], Error>) -> Void)` | Returns `[RookActivityEvent]` an array of objects with all the data of the activity events |
+| `public fun getTemperatureEvents(date: Date, completion: @escaping (Result<[RookTemperatureEvent], Error>) -> Void)` | Returns `[RookTemperatureEvent]` an array of objects with all the data of the temperature events |
+| `public func getBloodPressureEvents(date: Date, completion: @escaping (Result<[RookBloodPressureEvent], Error>) -> Void)` | Returns `[RookBloodPressureEvent]` an array of objects with all the data of the blood pressure events |
+| `public func getGlucoseEvents(date: Date, completion: @escaping (Result<[RookGlucoseEvent], Error>) -> Void)` | Returns `[RookGlucoseEvent]` an array of objects with all the data of the blood glucose events |
 
 
 ### Keeping track of the last time a summary was retrieved

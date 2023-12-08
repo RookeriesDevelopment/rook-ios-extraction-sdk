@@ -13,7 +13,7 @@ import RookAppleHealth
 /// Use the shared property to access the class
 public final class RookAHConfiguration {
   
-  ///Returns the shated RookAHConfiguration object
+  ///Returns the shared RookAHConfiguration object
   public static let shared: RookAHConfiguration = RookAHConfiguration()
   
   /// Sets your client uuid and secrete to configure the sdk
@@ -24,6 +24,11 @@ public final class RookAHConfiguration {
   /// Sets your environment to configure the sdk
   public func setEnvironment(_ environment: RookExtractionEnvironment) {
     RookAuthAppleHealth.shared.setEnvironment(environment)
+  }
+  
+  /// Sets the user's id
+  public func setUserId(_ id: String) {
+    RookAuthAppleHealth.shared.setUserId(with: id)
   }
   
   /// Initializes the rook apple health sdk

@@ -75,9 +75,36 @@ final public class RookAHEventExtractionManager {
                                         completion: completion)
   }
   
+  ///Returns `[RookTemperatureEvent]` an array of objects with all the data of the temperature events
+  ///
+  /// - parameter date: The Date to fetch the heart rate events
+  /// - parameter completion: Completion block that contains a result with the events data or an error
+  public func getTemperatureEvents(date: Date,
+                                completion: @escaping (Result<[RookTemperatureEvent], Error>) -> Void) {
+    self.eventManager.getTemperatureEvents(date: date, completion: completion)
+  }
+  
+  ///Returns `[RookBloodPressureEvent]` an array of objects with all the data of the blood pressure events
+  ///
+  /// - parameter date: The Date to fetch the heart rate events
+  /// - parameter completion: Completion block that contains a result with the events data or an error
+  public func getBloodPressureEvents(date: Date,
+                                     completion: @escaping (Result<[RookBloodPressureEvent], Error>) -> Void) {
+    self.eventManager.getBloodPressureEvents(date: date, completion: completion)
+  }
+  
+  ///Returns `[RookGlucoseEvent]` an array of objects with all the data of the blood glucose events
+  ///
+  /// - parameter date: The Date to fetch the heart rate events
+  /// - parameter completion: Completion block that contains a result with the events data or an error
+  public func getGlucoseEvents(date: Date,
+                                completion: @escaping (Result<[RookGlucoseEvent], Error>) -> Void) {
+    self.eventManager.getGlucoseEvents(date: date, completion: completion)
+  }
+  
   /// Returns the last extraction date of the summary or event provided
   ///
-  /// - parameter summary: `RookDataType` enum object to select the summary type, it could be sleepSummary, physicalSummary, bodySummaryheartRateBodyEvent, heartRatePhysicalEvent, oxygenationBodyEvent, oxygenationPhysicalEvent or activityEvent
+  /// - parameter summary: `RookDataType` enum object to select the summary type, it could be sleepSummary, physicalSummary, bodySummaryHeartRateBodyEvent, heartRatePhysicalEvent, oxygenationBodyEvent, oxygenationPhysicalEvent or activityEvent
   public func getLastExtractionDate(of type: RookDataType) -> Date? {
     return self.eventManager.getLastExtractionDate(of: type)
   }

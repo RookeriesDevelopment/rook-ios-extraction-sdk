@@ -12,4 +12,14 @@
 
 * setEnvironment method was added it is recommended to set this to match the correct type.
 
-* The spelling of getSleepSummary and requestBodyPermissions methods was fixed 
+* The spelling of getSleepSummary and requestBodyPermissions methods was fixed
+
+## 1.0.9
+
+* setConfiguration method ask for your secrete key
+  
+* getTemperatureEvents was added to RookAHEventExtractionManager
+
+* getBloodPressureEvents was added to RookAHEventExtractionManager
+
+* getGlucoseEvents was added to RookAHEventExtractionManager 
