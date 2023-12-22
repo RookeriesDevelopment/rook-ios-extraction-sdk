@@ -22,4 +22,10 @@
 
 * getBloodPressureEvents was added to RookAHEventExtractionManager
 
-* getGlucoseEvents was added to RookAHEventExtractionManager 
+* getGlucoseEvents was added to RookAHEventExtractionManager
+
+## 1.0.10
+
+*  if the data of a physical summary is empty the method will return an error
+
+*  if the data of a body summary is empty the method will return an error
