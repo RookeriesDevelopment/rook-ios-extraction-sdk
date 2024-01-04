@@ -29,3 +29,7 @@
 *  if the data of a physical summary is empty the method will return an error
 
 *  if the data of a body summary is empty the method will return an error
+
+## 1.1.0
+
+*  sleep data from external data source is accepted
